@@ -5,12 +5,13 @@
     </span> -->
 
     <span>
-      <img v-for="dice in dices"  class="icon" :src="dice.path" :style="`background: ${dice.color}`"/>
+      <img v-for="dice in dices"  class="icon" :src="dice"/>
     </span>
   </div>
 </template>
 
 <script>
+import defaultIcons from './_icons.js'
 export default {
   name: 'dice-roller',
   props: {
@@ -36,10 +37,7 @@ export default {
   data () {
     return {
       dices: [],
-      icons: [
-        {path: 'https://raw.githubusercontent.com/game-icons/icons/master/delapouite/originals/svg/3d-meeple.svg?sanitize=true', color: 'black'},
-        {path: 'https://raw.githubusercontent.com/game-icons/icons/master/delapouite/originals/svg/abacus.svg?sanitize=true', color: 'white'},
-      ],
+      icons: defaultIcons.icons,
     }
   },
   methods: {
@@ -51,11 +49,13 @@ export default {
       console.log('this.count', this.count)
       for (var i = 0; i < this.count; i++) {
         var dice = this.randomDice()
+        console.log("dice",dice)
         this.dices.push(dice)
       }
     },
   },
   mounted () {
+    console.log("defaultIcons",defaultIcons)
     this.initDices()
     console.log('this.dices', this.dices)
   },

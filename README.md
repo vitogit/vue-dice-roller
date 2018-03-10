@@ -11,7 +11,8 @@ Idea based on https://github.com/treetrnk/storygen/
 The icons used are from http://game-icons.net/ the author is https://github.com/Delapouite
 It has a CC BY 3.0 license so use this component or the icons you must credit him for his work.
 
-
+Note to self
+printf "https://raw.githubusercontent.com/vitogit/vue-dice-roller/master/src/icons/%s?sanitize=true\',\n\'" * > _list.js
 
 # Installation
 
