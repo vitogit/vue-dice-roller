@@ -1,4 +1,9 @@
 
-.test h1[data-v-df704688] {
-  color: #40b883;
+.icon {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 2px;
 }

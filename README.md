@@ -3,16 +3,15 @@
 [![npm](https://img.shields.io/npm/v/vue-dice-roller.svg) ![npm](https://img.shields.io/npm/dm/vue-dice-roller.svg)](https://www.npmjs.com/package/vue-dice-roller)
 [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
-A Dice Roller vue component.
+A Dice Roller vue.js component.
+
+##License
+
+Idea based on https://github.com/treetrnk/storygen/
+The icons used are from http://game-icons.net/ the author is https://github.com/Delapouite
+It has a CC BY 3.0 license so use this component or the icons you must credit him for his work.
 
 
-Based on https://github.com/treetrnk/storygen/ using this icons http://game-icons.net/  
-
-## Table of contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Example](#example)
 
 # Installation
 
