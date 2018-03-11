@@ -1,11 +1,7 @@
 <template>
   <div id="dice-roller">
-    <!-- <span v-if="diceFaces">
-      <span v-for="dice in dices"> </span>
-    </span> -->
-
     <span>
-      <img v-for="dice in dices"  class="icon" :src="dice"/>
+      <img v-for="dice in dices"  v-bind:class="{ rotate: isRolling, icon: true }"  :src="dice"/>
     </span>
   </div>
 </template>
@@ -19,45 +15,34 @@ export default {
       type: Number,
       default: 5,
     },
-    diceFaces: {
-      type: Number,
-      default: null
-    }
-    // faces: {
-    //   type: Number,
-    //   default: 6,
-    // }
   },
   watch: {
-    // fen: function (newFen) {
-    //   this.fen = newFen
-    //   this.loadPosition()
-    // },
+    count: function (newCount) {
+      this.count = newCount
+    },
   },
   data () {
     return {
       dices: [],
       icons: defaultIcons.icons,
+      isRolling: false,
     }
   },
   methods: {
     randomDice () {
       return this.icons[Math.round(Math.random() * (this.icons.length - 1))]
     },
-    initDices () {
+    roll () {
+      this.isRolling = !this.isRolling
       this.dices = []
-      console.log('this.count', this.count)
       for (var i = 0; i < this.count; i++) {
         var dice = this.randomDice()
-        console.log("dice",dice)
         this.dices.push(dice)
       }
     },
   },
   mounted () {
-    console.log("defaultIcons",defaultIcons)
-    this.initDices()
-    console.log('this.dices', this.dices)
+    this.roll()
   },
 }
 </script>
@@ -69,6 +54,16 @@ export default {
     border: 3px solid #000;
     border-radius: 5px;
     cursor: pointer;
-    margin: 2px;
+    margin: 10px;
+    -moz-transition: all 1s linear;
+    -webkit-transition: all 1s linear;
+    transition: all 1s linear;
+  }
+
+  .icon.rotate{
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 </style>

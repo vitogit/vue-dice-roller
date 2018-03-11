@@ -5,5 +5,14 @@
   border: 3px solid #000;
   border-radius: 5px;
   cursor: pointer;
-  margin: 2px;
+  margin: 10px;
+  -moz-transition: all 1s linear;
+  -webkit-transition: all 1s linear;
+  transition: all 1s linear;
+}
+.icon.rotate{
+  -ms-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
