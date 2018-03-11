@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="./dist/vue-dice-roller.css"/>
+      <script src="https://unpkg.com/vue"></script>
+      <script src="./dist/vue-dice-roller.browser.js"></script>
+      <title> Example of the vue roll dice component </title>
+   </head>
+   <body>
+      <h1> Example of the vue roll dice component </h1>
+      <div id="app">
+        <button @click="roll">ROLL</button>
+        <select v-model="diceCount">
+          <option v-for="index in 10" :value="index">{{index}}</option>
+        </select>
+        <dice-roller ref="diceroller" :count="diceCount"/>
+      </div>
+
+     <script>
+        Vue.use(VueDiceRoller)
+        new Vue({
+          el: '#app',
+          data () {
+            return {
+              diceCount: 6
+            }
+          },
+          methods: {
+            roll() {
+              console.log("this.$refs",this.$refs)
+              this.$refs.diceroller.roll();
+            }
+          }
+        })
+     </script>
+   </body>
+</html>

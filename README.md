@@ -5,16 +5,18 @@
 
 A Dice Roller vue.js component.
 
-##License
+## License
 
 Idea based on https://github.com/treetrnk/storygen/
 The icons used are from http://game-icons.net/ the author is https://github.com/Delapouite
 It has a CC BY 3.0 license so use this component or the icons you must credit him for his work.
 
-Note to self
-printf "https://raw.githubusercontent.com/vitogit/vue-dice-roller/master/src/icons/%s?sanitize=true\',\n\'" * > _list.js
+Note to self to generate list
+```
+  printf "https://raw.githubusercontent.com/vitogit/vue-dice-roller/master/src/icons/%s?sanitize=true\',\n\'" * > _list.js
+```
 
-# Installation
+## Installation
 
 ```
 npm install --save vue-dice-roller
@@ -35,9 +37,9 @@ Use specific components:
 
 ```javascript
 import Vue from 'vue'
-import { Test } from 'vue-dice-roller'
+import { DiceRoller } from 'vue-dice-roller'
 
-Vue.component('test', Test)
+Vue.component('DiceRoller', DiceRoller)
 ```
 
 **⚠️ A css file is included when importing the package. You may have to setup your bundler to embed the css in your page.**
@@ -57,9 +59,9 @@ Use specific components:
 
 ```javascript
 import 'vue-dice-roller/dist/vue-dice-roller.css'
-import { Test } from 'vue-dice-roller/dist/vue-dice-roller.common'
+import { DiceRoller } from 'vue-dice-roller/dist/vue-dice-roller.common'
 
-Vue.component('test', Test)
+Vue.component('DiceRoller', DiceRoller)
 ```
 
 **⚠️ You may have to setup your bundler to embed the css file in your page.**
@@ -84,95 +86,49 @@ Vue.use(VueDiceRoller)
 Use specific components:
 
 ```javascript
-Vue.component('test', VueDiceRoller.Test)
+Vue.component('DiceRoller', VueDiceRoller.DiceRoller)
 ```
 
-## Source import
 
-Install all the components:
-
-```javascript
-import Vue from 'vue'
-import VueDiceRoller from 'vue-dice-roller/src'
-
-Vue.use(VueDiceRoller)
-```
-
-Use specific components:
-
-```javascript
-import Vue from 'vue'
-import { Test } from 'vue-dice-roller/src'
-
-Vue.component('test', Test)
-```
-
-**⚠️ You need to configure your bundler to compile `.vue` files.** More info [in the official documentation](https://vuejs.org/v2/guide/single-file-components.html).
-
-# Usage
-
-> TODO
 
 # Example
 
-> TODO
-
----
-
-# Plugin Development
-
-## Installation
-
-The first time you create or clone your plugin, you need to install the default dependencies:
-
+Full Example. You can check it online here: 
 ```
-npm install
-```
+      <div id="app">
+        <button @click="roll">ROLL</button>
+        <select v-model="diceCount">
+          <option v-for="index in 10" :value="index">{{index}}</option>
+        </select>
+        <dice-roller ref="diceroller" :count="diceCount"/>
+      </div>
 
-## Watch and compile
-
-This will run webpack in watching mode and output the compiled files in the `dist` folder.
-
-```
-npm run dev
-```
-
-## Use it in another project
-
-While developping, you can follow the install instructions of your plugin and link it into the project that uses it.
-
-In the plugin folder:
-
-```
-npm link
+     <script>
+        Vue.use(VueDiceRoller)
+        new Vue({
+          el: '#app',
+          data () {
+            return {
+              diceCount: 6
+            }
+          },
+          methods: {
+            roll() {
+              console.log("this.$refs",this.$refs)
+              this.$refs.diceroller.roll();
+            }
+          }
+        })
+     </script>
 ```
 
-In the other project folder:
 
+Will roll 5 dices with random color backgrounds
 ```
-npm link vue-dice-roller
-```
-
-This will install it in the dependencies as a symlink, so that it gets any modifications made to the plugin.
-
-## Publish to npm
-
-You may have to login to npm before, with `npm adduser`. The plugin will be built in production mode before getting published on npm.
-
-```
-npm publish
+    <dice-roller ref="diceroller" :count="5"/>
 ```
 
-## Manual build
-
-This will build the plugin into the `dist` folder in production mode.
-
+Will roll 3 dices with white backgrounds
 ```
-npm run build
+    <dice-roller ref="diceroller" :count="3" :whiteBackground="true"/>
 ```
-
----
-
-## License
-
-[MIT](http://opensource.org/licenses/MIT)

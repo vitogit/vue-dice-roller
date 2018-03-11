@@ -1,7 +1,7 @@
 <template>
   <div id="dice-roller">
     <span>
-      <img v-for="dice in dices"  v-bind:class="{ rotate: isRolling, icon: true }"  :src="dice"/>
+      <img v-for="dice in dices"  v-bind:class="{ rotate: isRolling, icon: true }"  :src="dice" :style="`background-color:${randomColor()}`"/>
     </span>
   </div>
 </template>
@@ -15,10 +15,17 @@ export default {
       type: Number,
       default: 5,
     },
+    whiteBackground: {
+      type: Boolean,
+      default: false,
+    },
   },
   watch: {
     count: function (newCount) {
       this.count = newCount
+    },
+    whiteBackground: function (n) {
+      this.whiteBackground = n
     },
   },
   data () {
@@ -26,11 +33,27 @@ export default {
       dices: [],
       icons: defaultIcons.icons,
       isRolling: false,
+      colors: [
+        '#1664a2',
+        '#2EC4B6',
+        '#E71D36',
+        '#FF9F1C',
+        '#9c27b0',
+        '#00bcd4',
+        '#4caf50',
+        '#9e9e9e',
+      ],
     }
   },
   methods: {
     randomDice () {
       return this.icons[Math.round(Math.random() * (this.icons.length - 1))]
+    },
+    randomColor () {
+      if (this.whiteBackground) {
+        return
+      }
+      return this.colors[Math.round(Math.random() * (this.colors.length - 1))]
     },
     roll () {
       this.isRolling = !this.isRolling
