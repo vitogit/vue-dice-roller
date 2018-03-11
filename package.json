@@ -1,7 +1,7 @@
 {
   "name": "vue-dice-roller",
   "description": "A Dice Roller vue component",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": {
     "name": "vitogit",
     "email": "vitogit"
@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/http://github.com/vitogit/vue-dice-roller.git"
+    "url": "https://github.com/vitogit/vue-dice-roller.git"
   },
   "bugs": {
-    "url": "https://github.com/http://github.com/vitogit/vue-dice-roller/issues"
+    "url": "https://github.com/vitogit/vue-dice-roller/issues"
   },
-  "homepage": "https://github.com/http://github.com/vitogit/vue-dice-roller#readme",
+  "homepage": "https://github.com/vitogit/vue-dice-roller#readme",
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-eslint": "^7.1.1",
