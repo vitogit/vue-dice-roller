@@ -3,18 +3,28 @@
 [![npm](https://img.shields.io/npm/v/vue-dice-roller.svg) ![npm](https://img.shields.io/npm/dm/vue-dice-roller.svg)](https://www.npmjs.com/package/vue-dice-roller)
 [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
-A Dice Roller vue.js component.
+A Dice Roller Vue.js component with images. Like story cubes.
 
-## License
+![example.gif](example.gif)
 
-Idea based on https://github.com/treetrnk/storygen/
-The icons used are from http://game-icons.net/ the author is https://github.com/Delapouite
-It has a CC BY 3.0 license so use this component or the icons you must credit him for his work.
+You can check an example here http://vitomd.com/vue-dice-roller/example.html
 
-Note to self to generate list
+
+
+Note to self, to generate icon list
 ```
   printf "https://raw.githubusercontent.com/vitogit/vue-dice-roller/master/src/icons/%s?sanitize=true\',\n\'" * > _list.js
 ```
+
+# License
+
+Idea based on https://github.com/treetrnk/storygen/
+
+The icons used are from http://game-icons.net/ the author is https://github.com/Delapouite
+
+It has a CC BY 3.0 license so use this component or the icons you must credit him for his work.
+
+
 
 ## Installation
 
@@ -33,14 +43,6 @@ import VueDiceRoller from 'vue-dice-roller'
 Vue.use(VueDiceRoller)
 ```
 
-Use specific components:
-
-```javascript
-import Vue from 'vue'
-import { DiceRoller } from 'vue-dice-roller'
-
-Vue.component('DiceRoller', DiceRoller)
-```
 
 **⚠️ A css file is included when importing the package. You may have to setup your bundler to embed the css in your page.**
 
@@ -55,15 +57,6 @@ import VueDiceRoller from 'vue-dice-roller/dist/vue-dice-roller.common'
 Vue.use(VueDiceRoller)
 ```
 
-Use specific components:
-
-```javascript
-import 'vue-dice-roller/dist/vue-dice-roller.css'
-import { DiceRoller } from 'vue-dice-roller/dist/vue-dice-roller.common'
-
-Vue.component('DiceRoller', DiceRoller)
-```
-
 **⚠️ You may have to setup your bundler to embed the css file in your page.**
 
 ## Browser
@@ -75,25 +68,13 @@ Vue.component('DiceRoller', DiceRoller)
 <script src="vue-dice-roller/dist/vue-dice-roller.browser.js"></script>
 ```
 
-The plugin should be auto-installed. If not, you can install it manually with the instructions below.
-
-Install all the components:
-
 ```javascript
-Vue.use(VueDiceRoller)
+    Vue.use(VueDiceRoller)
 ```
-
-Use specific components:
-
-```javascript
-Vue.component('DiceRoller', VueDiceRoller.DiceRoller)
-```
-
-
 
 # Example
 
-Full Example. You can check it online here: 
+Full Example. You can check it online here: http://vitomd.com/vue-dice-roller/example.html
 ```
       <div id="app">
         <button @click="roll">ROLL</button>
