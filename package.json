@@ -1,7 +1,7 @@
 {
   "name": "vue-dice-roller",
   "description": "A Dice Roller vue component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "vitogit",
     "email": "vitogit"

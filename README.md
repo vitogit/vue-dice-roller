@@ -36,9 +36,7 @@ Install all the components:
 
 ```javascript
 import Vue from 'vue'
-import VueDiceRoller from 'vue-dice-roller'
-
-Vue.use(VueDiceRoller)
+import {DiceRoller} from 'vue-dice-roller'
 ```
 
 
@@ -50,9 +48,9 @@ Install all the components:
 
 ```javascript
 import 'vue-dice-roller/dist/vue-dice-roller.css'
-import VueDiceRoller from 'vue-dice-roller/dist/vue-dice-roller.common'
+import {DiceRoller} from 'vue-dice-roller/dist/vue-dice-roller.common'
 
-Vue.use(VueDiceRoller)
+Vue.use(DiceRoller)
 ```
 
 **⚠️ You may have to setup your bundler to embed the css file in your page.**
@@ -70,7 +68,36 @@ Vue.use(VueDiceRoller)
     Vue.use(VueDiceRoller)
 ```
 
-# Example
+# Example Vue App
+
+Full Example. You can check it online here: http://vitomd.com/vue-dice-roller/example.html
+```
+  <button @click="roll">ROLL</button>
+  <select v-model="diceCount">
+    <option v-for="index in 10" :value="index">{{index}}</option>
+  </select>
+  <dice-roller ref="diceroller" :count="diceCount"/>
+  
+<script>
+  import {DiceRoller} from 'vue-dice-roller'
+  export default {
+    name: 'DiceExample',
+    components: {DiceRoller},
+    data () {
+      return {
+        diceCount: 6
+      }
+    },
+    methods: {
+      roll() {
+        vm.$refs.diceroller.roll();
+      }
+    }
+  }
+</script>  
+```
+
+# Example HTML
 
 Full Example. You can check it online here: http://vitomd.com/vue-dice-roller/example.html
 ```
